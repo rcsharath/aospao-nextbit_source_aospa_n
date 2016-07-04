@@ -160,6 +160,9 @@ audio.offload.pcm.24bit.enable=true
 #Enable music through deep buffer
 audio.deep_buffer.media=true
 
+#Set minimal offload duration
+audio.offload.min.duration.secs=30
+
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
 
