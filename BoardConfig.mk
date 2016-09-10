@@ -30,6 +30,8 @@ BOOTLOADER_GCC_VERSION := arm-eabi-4.8
 BOOTLOADER_PLATFORM := msm8994 # use msm8994 LK configuration
 TARGET_NO_KERNEL := false
 TARGET_KERNEL_APPEND_DTB := true
+TARGET_USES_64_BIT_BINDER := true
+
 -include $(QCPATH)/common/msm8992/BoardConfigVendor.mk
 
 # Some framework code requires this to enable BT
