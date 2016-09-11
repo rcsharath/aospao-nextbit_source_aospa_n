@@ -66,6 +66,8 @@ PRODUCT_BOOT_JARS += security-bridge
 PRODUCT_BOOT_JARS += qsb-port
 endif
 
+USE_DEX2OAT_DEBUG := false
+
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
