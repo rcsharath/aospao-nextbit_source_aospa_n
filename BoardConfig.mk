@@ -64,6 +64,8 @@ TARGET_USES_OVERLAY := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
 
+TARGET_USES_C2D_COMPOSITION := true
+
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 androidboot.selinux=permissive
 
 BOARD_KERNEL_SEPARATED_DT := true
