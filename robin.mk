@@ -129,6 +129,9 @@ PRODUCT_AAPT_CONFIG += xlarge large
 PRODUCT_PACKAGE_OVERLAYS := $(QCPATH)/qrdplus/Extension/res \
         $(PRODUCT_PACKAGE_OVERLAYS)
 
+# QPerformance
+PRODUCT_BOOT_JARS += QPerformance
+
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
