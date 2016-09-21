@@ -70,6 +70,10 @@ PRODUCT_PACKAGES += libGLES_android
 # Audio configuration file
 -include $(TOPDIR)hardware/qcom/audio/configs/msm8992/msm8992.mk
 
+PRODUCT_COPY_FILES += \
+    device/nextbit/robin/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/nextbit/robin/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
     device/nextbit/robin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
