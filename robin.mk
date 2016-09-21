@@ -114,6 +114,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml
 
+PRODUCT_PACKAGES += \
+    sensors.msm8992
+
 #ANT+ stack
 PRODUCT_PACKAGES += \
     AntHalService \
