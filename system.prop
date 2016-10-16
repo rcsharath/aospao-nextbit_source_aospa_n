@@ -199,3 +199,9 @@ persist.debug.coresight.config=stm-events
 ro.config.zram=true
 
 ro.product.first_api_level=23
+
+# Dexopt
+dalvik.vm.boot-dex2oat-threads=4
+dalvik.vm.dex2oat-threads=2
+dalvik.vm.image-dex2oat-threads=4
+dalvik.vm.dex2oat-swap=false
