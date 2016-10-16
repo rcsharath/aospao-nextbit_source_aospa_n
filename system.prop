@@ -197,3 +197,5 @@ persist.debug.coresight.config=stm-events
 
 # Create zram disk
 ro.config.zram=true
+
+ro.product.first_api_level=23
