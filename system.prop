@@ -1,5 +1,5 @@
 #
-# system.prop for plutonium
+# system.prop for robin
 #
 
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so

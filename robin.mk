@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-DEVICE_PACKAGE_OVERLAYS := device/qcom/msm8992/overlay
+DEVICE_PACKAGE_OVERLAYS := device/nextbit/robin/overlay
 
 ifneq ($(TARGET_USES_AOSP),true)
 TARGET_USES_NQ_NFC := false
@@ -24,12 +24,12 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 
 # copy customized media_profiles and media_codecs xmls for 8992
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
-PRODUCT_COPY_FILES += device/qcom/msm8992/media_profiles.xml:system/etc/media_profiles.xml \
-                      device/qcom/msm8992/media_codecs.xml:system/etc/media_codecs.xml \
-                      device/qcom/msm8992/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+PRODUCT_COPY_FILES += device/nextbit/robin/media_profiles.xml:system/etc/media_profiles.xml \
+                      device/nextbit/robin/media_codecs.xml:system/etc/media_codecs.xml \
+                      device/nextbit/robin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
-PRODUCT_COPY_FILES += device/qcom/msm8992/whitelistedapps.xml:system/etc/whitelistedapps.xml
+PRODUCT_COPY_FILES += device/nextbit/robin/whitelistedapps.xml:system/etc/whitelistedapps.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -39,10 +39,10 @@ $(call inherit-product, device/qcom/common/common64.mk)
 #msm8996 platform WLAN Chipset
 WLAN_CHIPSET := qca_cld
 
-PRODUCT_NAME := msm8992
-PRODUCT_DEVICE := msm8992
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := MSM8992 for arm64
+PRODUCT_NAME := robin
+PRODUCT_DEVICE := robin
+PRODUCT_BRAND := NextBit
+PRODUCT_MODEL := Robin
 
 #PRODUCT_BOOT_JARS += vcard
 PRODUCT_BOOT_JARS += tcmiface
@@ -74,9 +74,9 @@ PRODUCT_PACKAGES += libGLES_android
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8992/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
-    device/qcom/msm8992/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/qcom/msm8992/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
+    device/nextbit/robin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
+    device/nextbit/robin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    device/nextbit/robin/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
 
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file
 PRODUCT_COPY_FILES += \
@@ -93,7 +93,7 @@ endif
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8992/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf \
+    device/nextbit/robin/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
@@ -106,7 +106,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.relative_humidity.xml:system/etc/permissions/android.hardware.sensor.relative_humidity.xml \
 
 PRODUCT_COPY_FILES += \
-    device/qcom/msm8992/sensors/hals.conf:system/etc/sensors/hals.conf
+    device/nextbit/robin/sensors/hals.conf:system/etc/sensors/hals.conf
 
 # MIDI feature
 PRODUCT_COPY_FILES += \
@@ -132,3 +132,6 @@ PRODUCT_PACKAGE_OVERLAYS := $(QCPATH)/qrdplus/Extension/res \
 #for android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# Call the proprietary setup
+$(call inherit-product-if-exists, vendor/nextbit/robin/robin-vendor.mk)
