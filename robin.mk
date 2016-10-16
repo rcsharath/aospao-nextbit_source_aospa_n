@@ -138,5 +138,21 @@ PRODUCT_BOOT_JARS += QPerformance
 PRODUCT_PACKAGES += \
     fs_config_files
 
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    nfc_nci.pn54x.default \
+    NfcNci \
+    Tag
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
+
+PRODUCT_COPY_FILES += \
+    device/nextbit/robin/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/nextbit/robin/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+    device/nextbit/robin/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
+
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/nextbit/robin/robin-vendor.mk)

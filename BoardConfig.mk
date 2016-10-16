@@ -137,3 +137,5 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 TARGET_USES_IMS := true
 
 TARGET_RECOVERY_FSTAB := device/nextbit/robin/fstab.qcom
+
+BOARD_NFC_CHIPSET := pn547

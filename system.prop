@@ -206,3 +206,6 @@ ro.gps.agps_provider=1
 
 # reschedule killed services during app launch
 ro.am.reschedule_service=true
+
+# NFC
+persist.nfc.support=true
