@@ -29,8 +29,6 @@ PRODUCT_COPY_FILES += device/nextbit/robin/media_profiles.xml:system/etc/media_p
                       device/nextbit/robin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
-PRODUCT_COPY_FILES += device/nextbit/robin/whitelistedapps.xml:system/etc/whitelistedapps.xml
-
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
