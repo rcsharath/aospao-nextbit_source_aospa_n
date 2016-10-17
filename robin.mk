@@ -154,5 +154,23 @@ PRODUCT_COPY_FILES += \
     device/nextbit/robin/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/nextbit/robin/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
 
+# NextBit specific Ramdisk scripts
+PRODUCT_PACKAGES += \
+    init.fih.fqcaudio.rc \
+    init.fih.nbq.rc \
+    init.nbq.charger.rc \
+    init.nbq.fingerprint.rc \
+    init.nbq.fs.rc \
+    init.nbq.lcm.rc \
+    init.nbq.led.rc \
+    init.nbq.poweroff_charging.rc \
+    init.nbq.smartamp.rc \
+    init.nbq.smartamp.sh \
+    init.nbq.smartamp_mode.sh \
+    init.nbq.smartamp_post.sh \
+    init.nbq.target.rc \
+    init.qcom.fs.rc \
+    init.qcom.target.rc
+
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/nextbit/robin/robin-vendor.mk)
