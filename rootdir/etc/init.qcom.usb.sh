@@ -27,6 +27,45 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
+# Update USB serial number from persist storage if present, if not update
+# with value passed from kernel command line, if none of these values are
+# set then use the default value. This order is needed as for devices which
+# do not have unique serial number.
+# User needs to set unique usb serial number to persist.usb.serialno
+#
+
+serialno=`getprop persist.usb.serialno`
+case "$serialno" in
+    "")
+    serialnum=`getprop ro.serialno`
+    case "$serialnum" in
+        "");; #Do nothing, use default serial number
+        *)
+        echo "$serialnum" > /sys/class/android_usb/android0/iSerial
+    esac
+    ;;
+    *)
+    echo "$serialno" > /sys/class/android_usb/android0/iSerial
+esac
+
+manufacturer=`getprop ro.product.manufacturer`
+case "$manufacturer" in
+    "")
+    echo "Android" > /sys/class/android_usb/android0/iManufacturer
+    ;;
+    * )
+    echo "$manufacturer" > /sys/class/android_usb/android0/iManufacturer
+esac
+
+model=`getprop ro.product.model`
+case "$model" in
+    "")
+    echo "Android" > /sys/class/android_usb/android0/iProduct
+    ;;
+    * )
+    echo "$model" > /sys/class/android_usb/android0/iProduct
+esac
+
 chown -h root.system /sys/devices/platform/msm_hsusb/gadget/wakeup
 chmod -h 220 /sys/devices/platform/msm_hsusb/gadget/wakeup
 
@@ -119,7 +158,7 @@ case "$usb_config" in
           ;;
           "PCIe")
               setprop persist.sys.usb.config diag,diag_mdm,serial_tty,rmnet_qti_ether,mass_storage,adb
-          ;;
+                ;;
           *)
           case "$baseband" in
               "mdm")
@@ -163,6 +202,18 @@ case "$usb_config" in
     * ) ;; #USB persist config exists, do nothing
 esac
 
+#Check model name
+modelnum=$(getprop ro.product.model.num)
+
+case $modelnum in
+    "000F") #FTM mode
+    setprop persist.sys.usb.config mtp,mass_storage,adb
+    ;;
+    "000A" | "000C") #FIH CTA mode and Certification mode
+    setprop persist.sys.usb.config diag,serial_smd,mass_storage,adb #All port mode
+    ;;
+esac
+
 #
 # Do target specific things
 #
@@ -185,6 +236,35 @@ case "$target" in
     ;;
     "msm8994" | "msm8992")
         echo BAM2BAM_IPA > /sys/class/android_usb/android0/f_rndis_qc/rndis_transports
+    ;;
+esac
+
+#
+# Add support for exposing lun0 as cdrom in mass-storage
+#
+target=`getprop ro.product.device`
+cdromname="/hidden/custom.iso"
+cdromenable=`getprop persist.service.cdrom.enable`
+case "$target" in
+        "msm7627a" | "msm8226")
+                case "$cdromenable" in
+                        0)
+                                echo "" > /sys/class/android_usb/android0/f_mass_storage/lun0/file
+                                ;;
+                        1)
+                                echo "mounting usbcdrom lun"
+                                echo $cdromname > /sys/class/android_usb/android0/f_mass_storage/lun0/file
+                                ;;
+                esac
+                ;;
+esac
+
+#
+# Select USB BAM - 2.0 or 3.0
+#
+case "$target" in
+    "msm8974")
+        echo ssusb > /sys/bus/platform/devices/usb_bam/enable
     ;;
 esac
 

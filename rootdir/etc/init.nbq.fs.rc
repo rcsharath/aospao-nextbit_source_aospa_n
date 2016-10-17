@@ -1,0 +1,9 @@
+on post-fs-data
+    chown system system /sys/class/input/mouse0/device/test
+    restorecon /sys/class/input/mouse0/device/test
+    chown system system /sys/class/input/mouse0/device/doreflash
+    restorecon /sys/class/input/mouse0/device/doreflash
+    chown system system /sys/class/input/mouse0/device/appupgrade
+    restorecon /sys/class/input/mouse0/device/appupgrade
+    chown system system /sys/class/input/mouse0/device/lcm_version
+    restorecon /sys/class/input/mouse0/device/lcm_version
