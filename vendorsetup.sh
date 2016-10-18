@@ -31,4 +31,3 @@ add_lunch_combo msm8992-userdebug
 add_lunch_combo msm8994-userdebug
 add_lunch_combo robin-user
 add_lunch_combo robin-userdebug
-export PDK_FUSION_PLATFORM_ZIP=$(find vendor/pdk -name platform.zip)
