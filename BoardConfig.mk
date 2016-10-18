@@ -3,7 +3,7 @@
 # Product-specific compile-time definitions.
 #
 
-TARGET_BOARD_PLATFORM := robin
+TARGET_BOARD_PLATFORM := msm8992
 TARGET_BOOTLOADER_BOARD_NAME := robin
 
 TARGET_ARCH := arm64
