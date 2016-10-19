@@ -177,6 +177,7 @@ PRODUCT_PACKAGES += \
 
 # Tools
 PRODUCT_PACKAGES += \
+    libxml2 \
     libtinyxml \
     libtinyxml2 \
     libjson \
