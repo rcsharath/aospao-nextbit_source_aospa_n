@@ -141,6 +141,11 @@ PRODUCT_BOOT_JARS += QPerformance
 PRODUCT_PACKAGES += \
     fs_config_files
 
+# Fingerprint
+PRODUCT_PACKAGES += fingerprintd
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
+
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
