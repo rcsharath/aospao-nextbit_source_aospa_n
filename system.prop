@@ -181,9 +181,6 @@ qemu.hw.mainkeys=0
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
 
-# Create zram disk
-ro.config.zram=true
-
 ro.product.first_api_level=23
 
 # Dexopt
