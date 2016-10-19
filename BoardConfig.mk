@@ -45,7 +45,6 @@ QCOM_BT_USE_BTNV := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
 
 USE_OPENGL_RENDERER := true
-BOARD_USE_LEGACY_UI := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 41943040
@@ -87,7 +86,6 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
-BOARD_USES_GENERIC_AUDIO := true
 TARGET_NO_RPC := true
 
 USE_CLANG_PLATFORM_BUILD := true
@@ -95,8 +93,6 @@ USE_CLANG_PLATFORM_BUILD := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_INIT_VENDOR_LIB := libinit_msm
 
-#Add NON-HLOS files for ota upgrade
-ADD_RADIO_FILES := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 
 # Force camera module to be compiled only in 32-bit mode on 64-bit systems
