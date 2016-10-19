@@ -42,9 +42,6 @@ qcom.hw.aac.encoder=true
 #
 persist.cne.feature=1
 
-# system props for setting mbn file location
-persist.radio.app_hw_mbn_path=/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/MSM8994/LA
-
 #system props for the MM modules
 
 media.stagefright.enable-player=true
@@ -164,11 +161,6 @@ audio.offload.min.duration.secs=30
 
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
-
-#property for vendor specific library
-ro.vendor.at_library=libqti-at.so
-ro.vendor.gt_library=libqti-gt.so
-sys.games.gt.prof=0
 
 #hwui properties
 ro.hwui.texture_cache_size=72
