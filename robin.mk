@@ -45,29 +45,29 @@ PRODUCT_MODEL := Robin
 #PRODUCT_BOOT_JARS += vcard
 PRODUCT_BOOT_JARS += tcmiface
 # This jar is needed for MSIM manual provisioning and for other
-# telephony related functionalities to work.
+# telephony related functionalities to work
+PRODUCT_PACKAGES += telephony-ext.
 PRODUCT_BOOT_JARS += telephony-ext
 
-PRODUCT_PACKAGES += telephony-ext
-#PRODUCT_BOOT_JARS += qcmediaplayer
+PRODUCT_BOOT_JARS += qcmediaplayer
+PRODUCT_BOOT_JARS += tcmclient
+PRODUCT_BOOT_JARS += com.qti.dpmframework
+PRODUCT_BOOT_JARS += dpmapi
+PRODUCT_BOOT_JARS += com.qti.location.sdk
+#PRODUCT_BOOT_JARS += extendedmediaextractor
+
 #PRODUCT_BOOT_JARS += org.codeaurora.Performance
 
 ifneq ($(strip $(QCPATH)),)
 PRODUCT_BOOT_JARS += qcom.fmradio
-#PRODUCT_BOOT_JARS += com.qti.dpmframework
-#PRODUCT_BOOT_JARS += dpmapi
-#PRODUCT_BOOT_JARS += com.qti.location.sdk
-#PRODUCT_BOOT_JARS += oem-services
+PRODUCT_BOOT_JARS += oem-services
 PRODUCT_BOOT_JARS += WfdCommon
-#PRODUCT_BOOT_JARS += extendedmediaextractor
-#PRODUCT_BOOT_JARS += security-bridge
-#PRODUCT_BOOT_JARS += qsb-port
+PRODUCT_BOOT_JARS += security-bridge
+PRODUCT_BOOT_JARS += qsb-port
 endif
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
-
-
 
 # Audio configuration file
 -include $(TOPDIR)hardware/qcom/audio/configs/msm8992/msm8992.mk
