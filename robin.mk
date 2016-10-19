@@ -172,5 +172,12 @@ PRODUCT_PACKAGES += \
     init.qcom.fs.rc \
     init.qcom.target.rc
 
+# Tools
+PRODUCT_PACKAGES += \
+    libtinyxml \
+    libtinyxml2 \
+    libjson \
+    libprotobuf-cpp-full
+
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/nextbit/robin/robin-vendor.mk)
