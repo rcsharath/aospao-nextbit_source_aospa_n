@@ -192,6 +192,10 @@ PRODUCT_PACKAGES += \
     libjson \
     libprotobuf-cpp-full
 
+# Amplifier
+PRODUCT_PACKAGES += \
+    audio_amplifier.msm8992
+
 # Media
 PRODUCT_PACKAGES += \
     libOmxSwVencHevc \
