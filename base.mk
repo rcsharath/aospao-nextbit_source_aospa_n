@@ -177,9 +177,9 @@ EBTABLES += libebtc
 FASTPOWERON := FastBoot
 
 #FM
-FM := qcom.fmradio
-FM += libqcomfm_jni
-FM += libfmjni
+#FM := qcom.fmradio
+#FM += libqcomfm_jni
+#FM += libfmjni
 
 #GPS
 GPS_HARDWARE := gps.conf
@@ -650,24 +650,12 @@ PRODUCT_PACKAGES := \
     SyncProvider \
     IM \
     VoiceDialer \
-    FMRadio \
-    FM2 \
-    FMRecord \
-    VideoEditor \
     SnapdragonGallery \
     SnapdragonLauncher \
     SnapdragonMusic
 
-ifneq ($(TARGET_USES_AOSP),true)
 PRODUCT_PACKAGES += \
-       BluetoothExt \
-       BTTestApp \
-       HiddTestApp \
-       a4wpservice \
-       BTLogKit \
-       BTLogSave \
-       wipowerservice
-endif
+       BluetoothExt
 
 PRODUCT_PACKAGES += $(ALSA_HARDWARE)
 PRODUCT_PACKAGES += $(ALSA_UCM)
