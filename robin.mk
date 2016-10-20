@@ -46,7 +46,7 @@ PRODUCT_MODEL := Robin
 PRODUCT_BOOT_JARS += tcmiface
 # This jar is needed for MSIM manual provisioning and for other
 # telephony related functionalities to work
-PRODUCT_PACKAGES += telephony-ext.
+PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
 
 PRODUCT_BOOT_JARS += qcmediaplayer
