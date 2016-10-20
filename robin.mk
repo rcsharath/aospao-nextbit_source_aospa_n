@@ -129,10 +129,7 @@ PRODUCT_PACKAGES += \
     libantradio \
     antradio_app
 
-PRODUCT_SUPPORTS_VERITY := true
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 PRODUCT_AAPT_CONFIG += xlarge large
-
 
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
