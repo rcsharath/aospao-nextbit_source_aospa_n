@@ -192,5 +192,11 @@ PRODUCT_PACKAGES += \
     libjson \
     libprotobuf-cpp-full
 
+# Media
+PRODUCT_PACKAGES += \
+    libOmxSwVencHevc \
+    libOmxVidcCommon \
+    libstagefright_soft_flacenc
+
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/nextbit/robin/robin-vendor.mk)
