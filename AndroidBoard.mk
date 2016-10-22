@@ -20,7 +20,7 @@ endif
 #----------------------------------------------------------------------
 ifeq ($(strip $(TARGET_NO_KERNEL)),false)
 ifeq ($(KERNEL_DEFCONFIG),)
-    KERNEL_DEFCONFIG := robin_defconfig
+    KERNEL_DEFCONFIG := NBQ_perf_defconfig
 endif
 
 include kernel/AndroidKernel.mk
