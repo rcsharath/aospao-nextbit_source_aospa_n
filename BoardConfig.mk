@@ -65,6 +65,8 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom ehci-hcd.park=3 lpm_levels.sle
 
 BOARD_KERNEL_SEPARATED_DT := true
 
+BOARD_SECCOMP_POLICY := device/nextbit/robin/seccomp
+
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_TAGS_OFFSET        := 0x00000100
