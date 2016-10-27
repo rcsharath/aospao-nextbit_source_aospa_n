@@ -651,7 +651,6 @@ PRODUCT_PACKAGES := \
     IM \
     VoiceDialer \
     SnapdragonGallery \
-    SnapdragonLauncher \
     SnapdragonMusic
 
 PRODUCT_PACKAGES += \
