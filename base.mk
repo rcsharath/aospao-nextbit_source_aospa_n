@@ -629,12 +629,10 @@ PRODUCT_PACKAGES := \
     Bluetooth \
     Calculator \
     Calendar \
-    Camera \
     CellBroadcastReceiver \
     CertInstaller \
     DrmProvider \
     Email \
-    Gallery2 \
     LatinIME \
     Mms \
     Music \
@@ -651,7 +649,8 @@ PRODUCT_PACKAGES := \
     IM \
     VoiceDialer \
     SnapdragonGallery \
-    SnapdragonMusic
+    SnapdragonMusic \
+    SnapdragonCamera
 
 PRODUCT_PACKAGES += \
        BluetoothExt
