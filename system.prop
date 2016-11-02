@@ -175,6 +175,15 @@ ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
 
+## TheCrazyLex@PA Adding optimal dalvik-heap memory configuration - start
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=288m
+dalvik.vm.heapsize=768m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=1m
+dalvik.vm.heapmaxfree=8m
+## TheCrazyLex@PA Adding optimal dalvik-heap memory configuration - end
+
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
 

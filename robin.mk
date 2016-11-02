@@ -29,10 +29,6 @@ PRODUCT_COPY_FILES += device/nextbit/robin/media_profiles.xml:system/etc/media_p
                       device/nextbit/robin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
-# Override heap growth limit due to high display density on device
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=256m
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/qcom/common/common64.mk)
 #msm8996 platform WLAN Chipset
 WLAN_CHIPSET := qca_cld
