@@ -68,6 +68,8 @@ endif
 
 USE_DEX2OAT_DEBUG := false
 
+WITH_DEXPREOPT_DEBUG_INFO := false
+
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
