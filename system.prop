@@ -209,3 +209,5 @@ persist.data.tcp_rst_drop=true
 persist.data.iwlan.enable=true
 persist.cne.logging.qxdm=3974
 persist.dpm.feature=1
+
+persist.sys.hideapn=false
