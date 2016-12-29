@@ -45,9 +45,7 @@ function change_mode () {
 			fi
 			;;
 		"playback")
-            if [ "init_completed" == "reinit" ]; then
-                echo ------NXP_SmartAMP re-init------ >/dev/kmsg &
-            elif [ "$parameter" == "playback"  ]; then
+			if [ "$parameter" == "playback"  ]; then
 				fihnxptest on > /dev/null 2>&1
 			else
 				change_mode playback;
