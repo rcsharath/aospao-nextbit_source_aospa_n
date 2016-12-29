@@ -61,10 +61,6 @@ on post-fs-data
 
 # permissions for NFC
 on boot
-    # execute script to set initial CPU settings
-    # don't run as a service to avoid race conditions
-    exec - root root system -- /system/bin/init.robin.power.sh
-
     setprop ro.nfc.port "I2C"
     chmod 0660 /dev/pn544
     chown nfc nfc /dev/pn544
