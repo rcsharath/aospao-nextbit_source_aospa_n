@@ -838,7 +838,8 @@ case "$target" in
         echo "70 960000:80 1248000:85" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
         echo 80000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
-        echo 633600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+        echo 384000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+
         # restore A57's max
         cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
         # re-enable thermal and BCL hotplug
@@ -870,7 +871,7 @@ case "$target" in
 
         # core_ctl module
         insmod /system/lib/modules/core_ctl.ko
-        echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+        echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
         echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
         echo 30 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
         echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
