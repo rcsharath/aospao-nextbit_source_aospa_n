@@ -203,3 +203,9 @@ ro.am.reschedule_service=true
 
 # NFC
 persist.nfc.support=true
+
+persist.env.fastdorm.enabled=true
+persist.data.tcp_rst_drop=true
+persist.data.iwlan.enable=true
+persist.cne.logging.qxdm=3974
+persist.dpm.feature=1
