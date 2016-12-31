@@ -128,8 +128,6 @@ TARGET_USES_IMS := true
 
 TARGET_RECOVERY_FSTAB := device/nextbit/robin/fstab.qcom
 
-BOARD_NFC_CHIPSET := pn547
-
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_qcwcn
