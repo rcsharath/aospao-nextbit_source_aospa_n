@@ -156,4 +156,21 @@
    <!-- Operating volatage for bluetooth controller. 0 by default-->
    <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
 
+   <!-- Extended Boosts for QPerformance -->
+
+   <!-- Whether cpu boost is enabled right after boot -->
+   <bool name="config_enableCpuBoostOnBoot">true</bool>
+
+   <!-- Boost parameters which get passed to QPerformance -->
+    <integer-array name="onbootboost_param_value">
+        <item>0x40C20000</item> <!-- SCHED_DOWNMIGRATE resource opcode-->
+        <item>0xA</item>        <!-- SCHED_DOWNMIGRATE resource value-->
+        <item>0x40C1C000</item> <!-- SCHED_UPMIGRATE resource opcode-->
+        <item>0x14</item>       <!-- SCHED_UPMIGRATE resource value-->
+        <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode -->
+        <item>0x578</item>      <!-- CPUBOOST MIN_FREQ resource value -->
+        <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ BIG CORE resource opcode -->
+        <item>0x708</item>      <!-- CPUBOOST MIN_FREQ resource value -->
+    </integer-array>
+
 </resources>
