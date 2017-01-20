@@ -157,7 +157,7 @@ audio.offload.pcm.24bit.enable=true
 audio.offload.track.enable=true
 
 #Enable music through deep buffer
-audio.deep_buffer.media=true
+audio.deep_buffer.media=false
 
 #Set minimal offload duration
 audio.offload.min.duration.secs=30
