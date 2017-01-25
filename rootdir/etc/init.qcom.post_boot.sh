@@ -882,9 +882,15 @@ case "$target" in
         echo 20 > /proc/sys/kernel/sched_mostly_idle_load
         echo 3 > /proc/sys/kernel/sched_mostly_idle_nr_run
         echo 95 > /proc/sys/kernel/sched_upmigrate
-        echo 85 > /proc/sys/kernel/sched_downmigrate
+        echo 80 > /proc/sys/kernel/sched_downmigrate
         echo 400000 > /proc/sys/kernel/sched_freq_inc_notify
         echo 400000 > /proc/sys/kernel/sched_freq_dec_notify
+
+        # TheCrazyLex@PA Setup Shadow scheduling
+        echo 1 > /proc/sys/kernel/sched_use_shadow_scheduling
+        echo 60 > /proc/sys/kernel/sched_shadow_upmigrate
+        echo 30 > /proc/sys/kernel/sched_shadow_downmigrate
+
         #enable rps static configuration
         echo 8 >  /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus
         for devfreq_gov in /sys/class/devfreq/qcom,cpubw*/governor
