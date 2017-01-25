@@ -129,20 +129,6 @@
        <item>0x1300</item>     <!-- CPUBOOST MIN_FREQ resource value-->
    </integer-array>
 
-   <!-- Whether cpu boost is enabled for animation during exit and entry -->
-   <bool name="config_enablePerfBoostForAnimation">true</bool>
-   <integer name="animationboost_timeout_param">600</integer>
-   <integer-array name="animationboost_param_value">
-       <item>0x40C00000</item> <!-- SCHEDBOOST resource opcode-->
-       <item>0x1</item>        <!-- SCHEDBOOST resource value-->
-       <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
-       <item>0x44C</item>      <!-- CPUBOOST MIN_FREQ resource value-->
-       <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode-->
-       <item>0x1300</item>     <!-- CPUBOOST MIN_FREQ resource value-->
-       <item>0x42804000</item> <!-- GPU_MIN_PWRLVL resource opcode-->
-       <item>0x1</item>        <!-- GPU_MIN_PWRLVL resource value-->
-   </integer-array>
-
     <!-- Default list of files pinned by the Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
         <item>"/system/framework/arm64/boot-framework.oat"</item>
