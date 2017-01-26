@@ -132,7 +132,7 @@ service perfd /system/vendor/bin/perfd
 service per_mgr /system/bin/pm-service
     class core
     user system
-    group system
+    group system net_raw
 
 service per_proxy /system/bin/pm-proxy
     class core
