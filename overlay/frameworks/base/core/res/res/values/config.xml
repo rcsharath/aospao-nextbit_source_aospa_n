@@ -67,17 +67,15 @@
    <integer name="launchboost_timeout_param">2000</integer>
    <integer-array name="launchboost_param_value">
        <item>0x40C20000</item> <!-- SCHED_DOWNMIGRATE resource opcode-->
-       <item>0xA</item>        <!-- SCHED_DOWNMIGRATE resource value-->
+       <item>0x14</item>        <!-- SCHED_DOWNMIGRATE resource value-->
        <item>0x40C1C000</item> <!-- SCHED_UPMIGRATE resource opcode-->
-       <item>0x14</item>       <!-- SCHED_UPMIGRATE resource value-->
+       <item>0x28</item>       <!-- SCHED_UPMIGRATE resource value-->
        <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
        <item>0x708</item>      <!-- CPUBOOST MIN_FREQ resource value-->
        <item>0x40400000</item> <!-- DISABLE_POWER_COLLAPSE resource opcode-->
        <item>0x1</item>        <!-- DISABLE_POWER_COLLAPSE resource value-->
        <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode-->
        <item>0x514</item>      <!-- CPUBOOST MIN_FREQ resource value-->
-       <item>0x41000000</item> <!-- Minimum number of cores online resource opcode-->
-       <item>0x4</item>        <!-- Minimum number of cores online resource value-->
        <item>0x42804000</item> <!-- GPU_MIN_PWRLVL resource opcode-->
        <item>0x1</item>        <!-- GPU_MIN_PWRLVL resource value-->
    </integer-array>
