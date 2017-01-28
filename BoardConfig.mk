@@ -28,8 +28,6 @@ TARGET_NO_KERNEL := false
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_USES_64_BIT_BINDER := true
 
-TARGET_USES_INTERACTION_BOOST := true
-
 -include $(QCPATH)/common/msm8992/BoardConfigVendor.mk
 
 # Some framework code requires this to enable BT
