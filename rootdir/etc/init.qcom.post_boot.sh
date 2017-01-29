@@ -1149,6 +1149,16 @@ case "$target" in
         echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
     ;;
     "msm8994" | "msm8992")
+        # TheCrazyLex@PA Reset read_ahead value
+        for block_device in /sys/block/*
+        do
+            echo 512 > $block_device/queue/read_ahead_kb
+        done
+
+        # TheCrazyLex@PA Reset I/O scheduler for CFQ
+        echo "cfq" > /sys/block/mmcblk0/queue/scheduler
+        echo "cfq" > /sys/block/mmcblk0rpmb/queue/scheduler
+
         rm /data/system/perfd/default_values
         setprop ro.min_freq_0 384000
         setprop ro.min_freq_4 384000
