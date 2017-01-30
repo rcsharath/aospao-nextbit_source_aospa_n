@@ -21,7 +21,7 @@
 
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
-#define BTM_DEF_LOCAL_NAME   "NextBit Robin"
+#define BTM_DEF_LOCAL_NAME   "Nextbit Robin"
 // Disables read remote device feature
 #define BTA_SKIP_BLE_READ_REMOTE_FEAT FALSE
 #define MAX_ACL_CONNECTIONS    7
