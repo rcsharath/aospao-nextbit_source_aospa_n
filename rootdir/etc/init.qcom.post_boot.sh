@@ -1149,10 +1149,10 @@ case "$target" in
         echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
     ;;
     "msm8994" | "msm8992")
-        # TheCrazyLex@PA Reset read_ahead value
+        # TheCrazyLex@PA Reset and tune read_ahead value
         for block_device in /sys/block/*
         do
-            echo 512 > $block_device/queue/read_ahead_kb
+            echo 128 > $block_device/queue/read_ahead_kb
         done
 
         # TheCrazyLex@PA Reset I/O scheduler for CFQ
