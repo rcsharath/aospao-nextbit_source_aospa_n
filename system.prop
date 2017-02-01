@@ -114,10 +114,6 @@ persist.fuse_sdcard=true
 #system prop for Bluetooth SOC type
 qcom.bluetooth.soc=rome
 
-#Set this true as ROME which is programmed
-#as embedded wipower mode by deafult
-ro.bluetooth.emb_wp_mode=true
-
 #
 #snapdragon value add features
 #
