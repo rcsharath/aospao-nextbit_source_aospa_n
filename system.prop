@@ -207,3 +207,10 @@ persist.cne.logging.qxdm=3974
 persist.dpm.feature=1
 
 persist.sys.hideapn=false
+
+ro.hardware.nfc_nci=pn54x
+
+drm.service.enabled=true
+ro.com.widevine.cachesize=16777216
+persist.mm.sta.enable=0
+
