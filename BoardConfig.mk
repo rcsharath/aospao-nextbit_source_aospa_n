@@ -79,6 +79,9 @@ AUDIO_FEATURE_ENABLED_PCM_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_PCM_OFFLOAD_24 := true
 AUDIO_FEATURE_ENABLED_FLAC_OFFLOAD := true
 
+# Enable libc wrapper
+BOARD_USES_LIBC_WRAPPER := true
+
 # Enables Adreno RS driver
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
