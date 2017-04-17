@@ -141,3 +141,6 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_NAME          := "wlan"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+
+BOARD_PROVIDES_LIBRIL := true
+BOARD_PROVIDES_RILD := true
