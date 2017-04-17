@@ -29,7 +29,7 @@ PRODUCT_COPY_FILES += device/nextbit/robin/media_profiles.xml:system/etc/media_p
                       device/nextbit/robin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
-$(call inherit-product, device/qcom/common/common64.mk)
+$(call inherit-product, device/nextbit/robin/common64.mk)
 #msm8996 platform WLAN Chipset
 WLAN_CHIPSET := qca_cld
 
