@@ -833,11 +833,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hcef.xml:system/etc/permissions/android.hardware.nfc.hcef.xml
 endif
 
-# enable overlays to use our version of
-# source/resources etc.
-DEVICE_PACKAGE_OVERLAYS += device/nextbit/robin/device/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/nextbit/robin/product/overlay
-
 #Enabling Ring Tones
 #include frameworks/base/data/sounds/OriginalAudio.mk
 
