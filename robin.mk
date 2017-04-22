@@ -39,27 +39,16 @@ PRODUCT_BRAND := NextBit
 PRODUCT_MODEL := Robin
 
 #PRODUCT_BOOT_JARS += vcard
-PRODUCT_BOOT_JARS += tcmiface
 # This jar is needed for MSIM manual provisioning and for other
 # telephony related functionalities to work
 PRODUCT_BOOT_JARS += qti-telephony-common
-PRODUCT_PACKAGES += telephony-ext
-PRODUCT_BOOT_JARS += telephony-ext
 
-PRODUCT_BOOT_JARS += qcmediaplayer
-PRODUCT_BOOT_JARS += tcmclient
-PRODUCT_BOOT_JARS += com.qti.dpmframework
-PRODUCT_BOOT_JARS += dpmapi
-PRODUCT_BOOT_JARS += com.qti.location.sdk
 #PRODUCT_BOOT_JARS += extendedmediaextractor
 
 #PRODUCT_BOOT_JARS += org.codeaurora.Performance
 
 ifneq ($(strip $(QCPATH)),)
 PRODUCT_BOOT_JARS += qcom.fmradio
-#PRODUCT_BOOT_JARS += com.qti.dpmframework
-#PRODUCT_BOOT_JARS += dpmapi
-#PRODUCT_BOOT_JARS += com.qti.location.sdk
 PRODUCT_BOOT_JARS += oem-services
 PRODUCT_BOOT_JARS += WfdCommon
 PRODUCT_BOOT_JARS += security-bridge
