@@ -353,9 +353,6 @@
 
    <!-- Extended Boosts for QPerformance -->
 
-   <!-- Whether cpu boost is enabled right after boot -->
-   <bool name="config_enableCpuBoostOnBoot">true</bool>
-
    <!-- Boost parameters which get passed to QPerformance -->
     <integer-array name="onbootboost_param_value">
         <item>0x40C20000</item> <!-- SCHED_DOWNMIGRATE resource opcode-->
