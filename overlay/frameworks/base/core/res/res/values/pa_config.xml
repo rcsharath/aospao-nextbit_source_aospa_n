@@ -30,4 +30,7 @@
         <item>0x708</item>      <!-- CPUBOOST MIN_FREQ resource value -->
     </integer-array>
 
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
+
 </resources>
