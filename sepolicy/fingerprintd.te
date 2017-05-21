@@ -1,0 +1,13 @@
+allow fingerprintd tee_device:chr_file { read write ioctl open };
+
+allow fingerprintd sysfs:file w_file_perms;
+
+allow fingerprintd system_data_file:dir { write remove_name add_name };
+allow fingerprintd system_data_file:sock_file { create unlink };
+
+allow fingerprintd fpc_data_file:file create_file_perms;
+allow fingerprintd fpc_data_file:sock_file create_file_perms;
+allow fingerprintd fpc_data_file:dir create_dir_perms;
+
+allow tee fpc_data_file:dir rw_dir_perms;
+allow tee fpc_data_file:file create_file_perms;

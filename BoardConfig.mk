@@ -57,7 +57,7 @@ MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
 
 TARGET_USES_C2D_COMPOSITION := true
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5
 
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_APPEND_DTB := true
@@ -126,6 +126,9 @@ TARGET_USES_WCNSS_MAC_ADDR_REV   := true
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP := "ap"
+
+# Sepolicy
+BOARD_SEPOLICY_DIRS += device/nextbit/robin/sepolicy
 
 BOARD_PROVIDES_LIBRIL := true
 BOARD_PROVIDES_RILD := true
