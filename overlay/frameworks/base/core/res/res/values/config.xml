@@ -174,18 +174,6 @@
         <item>255</item>
     </integer-array>
 
-    <!-- MMS user agent string -->
-    <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
-
-    <!-- MMS user agent prolfile url -->
-    <string name="config_mms_user_agent_profile_url" translatable="false"
-            >http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
-
-    <!-- Configuration to restart radio upon PDP_DEACTIVATE with
-         error cause as Regular deactivation(36). -->
-    <!--
-    <bool name="config_radio_reset_on_regular_deactivation">false</bool>
-    -->
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
 
@@ -205,7 +193,6 @@
         <item>"evdo:4094,87380,524288,4096,16384,262144"</item>
     </string-array>
 
-
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
     <!--  Whether Multiuser UI should be shown -->
@@ -219,9 +206,6 @@
     <!-- Disable Manual Network Selection in Global Mode -->
     <string translatable="false" name="prohibit_manual_network_selection_in_gobal_mode">true</string>
 
-    <!--  Define Google play service package for FRP-->
-    <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
-
     <bool name="config_allowAllRotations">true</bool>
     <!-- Enable doze mode -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
@@ -229,13 +213,6 @@
     <!-- Screen brightness when dozing. -->
     <integer name="config_screenBrightnessDoze">17</integer>
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
-
-    <!-- Sets the package names whose certificates should be used to
-        verify location providers are allowed to be loaded. -->
-   <string-array name="config_locationProviderPackageNames" translatable="false">
-       <item>com.google.android.gms</item>
-       <item>com.android.location.fused</item>
-   </string-array>
 
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
@@ -311,6 +288,7 @@
        <item>0x40C04000</item> <!-- SCHED_PREFER_IDLE resource opcode -->
        <item>0x1</item>        <!-- SCHED_PREFER_IDLE resource value -->
    </integer-array>
+
    <!-- Whether cpu boost is enabled for horizontal scroll. -->
    <bool name="config_enableCpuBoostForScroller">true</bool>
    <integer-array name="scrollboost_param_value">
@@ -350,19 +328,5 @@
 
    <!-- Operating volatage for bluetooth controller. 0 by default-->
    <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
-
-   <!-- Extended Boosts for QPerformance -->
-
-   <!-- Boost parameters which get passed to QPerformance -->
-    <integer-array name="onbootboost_param_value">
-        <item>0x40C20000</item> <!-- SCHED_DOWNMIGRATE resource opcode-->
-        <item>0xA</item>        <!-- SCHED_DOWNMIGRATE resource value-->
-        <item>0x40C1C000</item> <!-- SCHED_UPMIGRATE resource opcode-->
-        <item>0x14</item>       <!-- SCHED_UPMIGRATE resource value-->
-        <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode -->
-        <item>0x578</item>      <!-- CPUBOOST MIN_FREQ resource value -->
-        <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ BIG CORE resource opcode -->
-        <item>0x708</item>      <!-- CPUBOOST MIN_FREQ resource value -->
-    </integer-array>
 
 </resources>

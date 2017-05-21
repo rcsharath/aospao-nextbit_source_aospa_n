@@ -13,10 +13,6 @@
 # limitations under the License.
 DEVICE_PACKAGE_OVERLAYS := device/nextbit/robin/overlay
 
-ifneq ($(TARGET_USES_AOSP),true)
-TARGET_USES_NQ_NFC := false
-TARGET_USES_QCOM_BSP := true
-endif
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Enable features in video HAL that can compile only on this platform
@@ -24,40 +20,16 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 
 # copy customized media_profiles and media_codecs xmls for 8992
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
-PRODUCT_COPY_FILES += device/nextbit/robin/media_profiles.xml:system/etc/media_profiles.xml \
-                      device/nextbit/robin/media_codecs.xml:system/etc/media_codecs.xml \
-                      device/nextbit/robin/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+PRODUCT_COPY_FILES += device/nextbit/robin/media/media_profiles.xml:system/etc/media_profiles.xml \
+                      device/nextbit/robin/media/media_codecs.xml:system/etc/media_codecs.xml \
+                      device/nextbit/robin/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
 $(call inherit-product, device/nextbit/robin/common64.mk)
-#msm8996 platform WLAN Chipset
-WLAN_CHIPSET := qca_cld
 
-PRODUCT_NAME := robin
-PRODUCT_DEVICE := robin
-PRODUCT_BRAND := NextBit
-PRODUCT_MODEL := Robin
-
-#PRODUCT_BOOT_JARS += vcard
 # This jar is needed for MSIM manual provisioning and for other
 # telephony related functionalities to work
 PRODUCT_BOOT_JARS += qti-telephony-common
-
-#PRODUCT_BOOT_JARS += extendedmediaextractor
-
-#PRODUCT_BOOT_JARS += org.codeaurora.Performance
-
-ifneq ($(strip $(QCPATH)),)
-PRODUCT_BOOT_JARS += qcom.fmradio
-PRODUCT_BOOT_JARS += oem-services
-PRODUCT_BOOT_JARS += WfdCommon
-PRODUCT_BOOT_JARS += security-bridge
-PRODUCT_BOOT_JARS += qsb-port
-endif
-
-USE_DEX2OAT_DEBUG := false
-
-WITH_DEXPREOPT_DEBUG_INFO := false
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -73,9 +45,9 @@ PRODUCT_PACKAGES += audiod
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
-    device/nextbit/robin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
-    device/nextbit/robin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/nextbit/robin/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
+    device/nextbit/robin/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
+    device/nextbit/robin/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    device/nextbit/robin/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
 
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file
 PRODUCT_COPY_FILES += \
@@ -85,10 +57,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
-
-ifneq ($(WLAN_CHIPSET),)
-PRODUCT_PACKAGES += $(WLAN_CHIPSET)_wlan.ko
-endif
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
