@@ -796,6 +796,7 @@ service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
+    disabled
 
 #Reduce wifi log amount, remove -dd
 #service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
