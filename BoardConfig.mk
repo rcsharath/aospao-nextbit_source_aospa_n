@@ -133,5 +133,8 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 # Sepolicy
 BOARD_SEPOLICY_DIRS += device/nextbit/robin/sepolicy
 
+# OTA assert
+TARGET_OTA_ASSERT_DEVICE := ether,robin
+
 BOARD_PROVIDES_LIBRIL := true
 BOARD_PROVIDES_RILD := true
