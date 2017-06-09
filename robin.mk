@@ -14,6 +14,7 @@
 DEVICE_PACKAGE_OVERLAYS := device/nextbit/robin/overlay
 
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_USES_NQ_NFC := true
 
 # Enable features in video HAL that can compile only on this platform
 TARGET_USES_MEDIA_EXTENSIONS := true
@@ -111,15 +112,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
 # NFC
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    NfcNci \
-    Tag
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
-
 PRODUCT_COPY_FILES += \
     device/nextbit/robin/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/nextbit/robin/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
