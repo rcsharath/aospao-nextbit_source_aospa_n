@@ -15,6 +15,7 @@ on post-fs-data
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
     write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
     write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level "related"
 
 	start ssr_diag
 
@@ -56,13 +57,14 @@ on property:persist.sys.wbg.bt.service=true
 
 # msm specific files that need to be created on /data
 on post-fs-data
-    mkdir /data/nfc
+    mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/nfc/param 0770 nfc nfc
     mkdir /etc/param
 
 # permissions for NFC
 on boot
     setprop ro.nfc.port "I2C"
-    chmod 0660 /dev/pn544
-    chown nfc nfc /dev/pn544
+    chmod 0660 /dev/pn547
+    chown nfc nfc /dev/pn547
 	chmod 0666 /dev/fpc1020
 	chown system system /dev/fpc1020
