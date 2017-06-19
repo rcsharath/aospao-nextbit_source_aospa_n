@@ -116,7 +116,7 @@ PRODUCT_COPY_FILES += \
     device/nextbit/robin/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/nextbit/robin/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
 
-# NextBit specific Ramdisk scripts
+# Nextbit Ramdisk scripts
 PRODUCT_PACKAGES += \
     init.fih.fqcaudio.rc \
     init.fih.nbq.rc \
