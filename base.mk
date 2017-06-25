@@ -160,7 +160,6 @@ EXTENDEDMEDIA_EXT += libextendedmediaextractor_jni
 EXTENDEDMEDIA_EXT += extendedmediaextractor
 EXTENDEDMEDIA_EXT += ExtendedMediaPlayer
 
-
 #DATA_OS
 DATA_OS := librmnetctl
 DATA_OS += rmnetcli

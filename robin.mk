@@ -13,17 +13,13 @@
 # limitations under the License.
 DEVICE_PACKAGE_OVERLAYS := device/nextbit/robin/overlay
 
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-
 # Enable features in video HAL that can compile only on this platform
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # copy customized media_profiles and media_codecs xmls for 8992
-ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
 PRODUCT_COPY_FILES += device/nextbit/robin/media/media_profiles.xml:system/etc/media_profiles.xml \
                       device/nextbit/robin/media/media_codecs.xml:system/etc/media_codecs.xml \
                       device/nextbit/robin/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
-endif  #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
 $(call inherit-product, device/nextbit/robin/common64.mk)
 
