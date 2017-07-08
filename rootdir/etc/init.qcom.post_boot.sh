@@ -52,14 +52,6 @@ function configure_memory_parameters() {
         echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
         echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
     fi
-
-    # Zram disk - 512MB size
-    zram_enable=`getprop ro.config.zram`
-    if [ "$zram_enable" == "true" ]; then
-        echo 536870912 > /sys/block/zram0/disksize
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
 }
 
 case "$target" in
@@ -797,20 +789,26 @@ case "$target" in
             echo -n enable > $mode
         done
 
-	# Disable CPU retention
-	echo 0 > /sys/module/lpm_levels/system/a53/cpu0/retention/idle_enabled
-	echo 0 > /sys/module/lpm_levels/system/a53/cpu1/retention/idle_enabled
-	echo 0 > /sys/module/lpm_levels/system/a53/cpu2/retention/idle_enabled
-	echo 0 > /sys/module/lpm_levels/system/a53/cpu3/retention/idle_enabled
-	echo 0 > /sys/module/lpm_levels/system/a57/cpu4/retention/idle_enabled
-	echo 0 > /sys/module/lpm_levels/system/a57/cpu5/retention/idle_enabled
+        # some files in /sys/devices/system/cpu are created after the restorecon of
+        # /sys/. These files receive the default label "sysfs".
+        # Restorecon again to give new files the correct label.
+        restorecon -R /sys/devices/system/cpu
 
-	# Disable L2 retention
-	echo 0 > /sys/module/lpm_levels/system/a53/a53-l2-retention/idle_enabled
-	echo 0 > /sys/module/lpm_levels/system/a57/a57-l2-retention/idle_enabled
+        # Disable CPU retention
+        echo 0 > /sys/module/lpm_levels/system/a53/cpu0/retention/idle_enabled
+        echo 0 > /sys/module/lpm_levels/system/a53/cpu1/retention/idle_enabled
+        echo 0 > /sys/module/lpm_levels/system/a53/cpu2/retention/idle_enabled
+        echo 0 > /sys/module/lpm_levels/system/a53/cpu3/retention/idle_enabled
+        echo 0 > /sys/module/lpm_levels/system/a57/cpu4/retention/idle_enabled
+        echo 0 > /sys/module/lpm_levels/system/a57/cpu5/retention/idle_enabled
+
+        # Disable L2 retention
+        echo 0 > /sys/module/lpm_levels/system/a53/a53-l2-retention/idle_enabled
+        echo 0 > /sys/module/lpm_levels/system/a57/a57-l2-retention/idle_enabled
 
         # configure governor settings for little cluster
         echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+        restorecon -R /sys/devices/system/cpu
         echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
         echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
         echo 19000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
@@ -818,24 +816,26 @@ case "$target" in
         echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
         echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
         echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-        echo 85 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+        echo "65 787200:75 960000:80" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
         echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
         echo 80000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
         echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+
         # online CPU4
         echo 1 > /sys/devices/system/cpu/cpu4/online
         # Best effort limiting for first time boot if msm_performance module is absent
         echo 960000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
         # configure governor settings for big cluster
         echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+        restorecon -R /sys/devices/system/cpu
         echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
         echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
         echo 19000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
-        echo 95 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
+        echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
         echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
         echo 1248000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
         echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-        echo "70 960000:80 1248000:85" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+        echo "20 633600:70 960000:80 1248000:85" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
         echo 80000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
         echo 384000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
@@ -876,10 +876,11 @@ case "$target" in
         echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
         echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
         echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
+
         # Setting b.L scheduler parameters
         echo 1 > /proc/sys/kernel/sched_migration_fixup
-        echo 20 > /proc/sys/kernel/sched_small_task
-        echo 20 > /proc/sys/kernel/sched_mostly_idle_load
+        echo 25 > /proc/sys/kernel/sched_small_task
+        echo 25 > /proc/sys/kernel/sched_mostly_idle_load
         echo 3 > /proc/sys/kernel/sched_mostly_idle_nr_run
         echo 95 > /proc/sys/kernel/sched_upmigrate
         echo 80 > /proc/sys/kernel/sched_downmigrate
@@ -907,6 +908,7 @@ case "$target" in
         # Set Memory parameters
         configure_memory_parameters
         restorecon -R /sys/devices/system/cpu
+
         # set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
         echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
@@ -1158,6 +1160,7 @@ case "$target" in
         # TheCrazyLex@PA Reset I/O scheduler for CFQ
         echo "cfq" > /sys/block/mmcblk0/queue/scheduler
         echo "cfq" > /sys/block/mmcblk0rpmb/queue/scheduler
+
 
         rm /data/system/perfd/default_values
         setprop ro.min_freq_0 384000

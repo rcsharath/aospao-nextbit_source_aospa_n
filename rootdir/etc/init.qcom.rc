@@ -45,6 +45,9 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    write /sys/block/zram0/comp_algorithm lz4
+    write /sys/block/zram0/max_comp_streams 4
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -340,9 +343,6 @@ on property:persist.sys.ssr.enable_ramdumps=1
 
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
-
-on property:sys.boot_completed=1
-    write /dev/kmsg "Boot completed "
 
 on property:persist.radio.atfwd.start=false
     stop atfwd
@@ -790,6 +790,7 @@ service wifi-crda /system/bin/sh /system/etc/init.crda.sh
    oneshot
 
 on property:sys.boot_completed=1
+    write /dev/kmsg "Boot completed "
     start qcom-post-boot
     start qti-testscripts
 
@@ -831,7 +832,7 @@ service ril-daemon /system/bin/rild
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket rild-debug stream 660 radio system
     user root
-    group radio cache inet misc audio log readproc wakelock sdcard_rw
+    group radio cache inet misc audio log readproc wakelock sdcard_r sdcard_rw qcom_diag
 
 service ril-daemon2 /system/bin/rild -c 2
     class main
