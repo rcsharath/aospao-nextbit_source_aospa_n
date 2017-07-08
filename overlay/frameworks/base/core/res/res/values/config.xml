@@ -282,9 +282,21 @@
        <item>0x40C1C000</item> <!-- SCHED_UPMIGRATE resource opcode-->
        <item>0x50</item>       <!-- SCHED_UPMIGRATE resource value-->
        <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
-       <item>0x3C0</item>      <!-- CPUBOOST MIN_FREQ resource value-->
+       <item>0x578</item>      <!-- CPUBOOST MIN_FREQ resource value-->
        <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode-->
-       <item>0x3C0</item>      <!-- CPUBOOST MIN_FREQ resource value-->
+       <item>0x514</item>      <!-- CPUBOOST MIN_FREQ resource value-->
+   </integer-array>
+   <!-- Whether cpu boost is enabled for horizontal scroll. -->
+   <bool name="config_enableCpuBoostForScroller">true</bool>
+   <integer-array name="scrollboost_param_value">
+       <item>0x40C20000</item> <!-- SCHED_DOWNMIGRATE resource opcode-->
+       <item>0xA</item>        <!-- SCHED_DOWNMIGRATE resource value-->
+       <item>0x40C1C000</item> <!-- SCHED_UPMIGRATE resource opcode-->
+       <item>0x14</item>       <!-- SCHED_UPMIGRATE resource value-->
+       <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
+       <item>0x578</item>      <!-- CPUBOOST MIN_FREQ resource value-->
+       <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode-->
+       <item>0x514</item>      <!-- CPUBOOST MIN_FREQ resource value-->
        <item>0x40C04000</item> <!-- SCHED_PREFER_IDLE resource opcode -->
        <item>0x1</item>        <!-- SCHED_PREFER_IDLE resource value -->
    </integer-array>
@@ -292,10 +304,16 @@
    <!-- Whether cpu boost is enabled for PanelView fling -->
    <bool name="config_enableCpuBoostForPanelViewFling">true</bool>
    <integer-array name="panelview_flingboost_param_value">
+       <item>0x40C20000</item> <!-- SCHED_DOWNMIGRATE resource opcode-->
+       <item>0xA</item>        <!-- SCHED_DOWNMIGRATE resource value-->
+       <item>0x40C1C000</item> <!-- SCHED_UPMIGRATE resource opcode-->
+       <item>0x14</item>       <!-- SCHED_UPMIGRATE resource value-->
        <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
        <item>0x578</item>      <!-- CPUBOOST MIN_FREQ resource value-->
        <item>0x40800100</item> <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode-->
        <item>0x514</item >     <!-- CPUBOOST MIN_FREQ resource value-->
+       <item>0x40C04000</item> <!-- SCHED_PREFER_IDLE resource opcode -->
+       <item>0x1</item>        <!-- SCHED_PREFER_IDLE resource value -->
    </integer-array>
 
     <!-- Default list of files pinned by the Pinner Service -->
