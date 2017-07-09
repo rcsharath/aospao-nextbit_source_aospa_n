@@ -889,8 +889,8 @@ case "$target" in
 
         # TheCrazyLex@PA Setup Shadow scheduling
         echo 1 > /proc/sys/kernel/sched_use_shadow_scheduling
-        echo 60 > /proc/sys/kernel/sched_shadow_upmigrate
-        echo 30 > /proc/sys/kernel/sched_shadow_downmigrate
+        echo 10 > /proc/sys/kernel/sched_shadow_downmigrate
+        echo 20 > /proc/sys/kernel/sched_shadow_upmigrate
 
         #enable rps static configuration
         echo 8 >  /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus
