@@ -8,3 +8,5 @@
 /dev/i2c-1                                                  u:object_r:smartamp_device:s0
 
 /system/etc/init\.qcom\.bt\.sh                              u:object_r:bluetooth_loader_exec:s0
+
+/dev/pn547                                                  u:object_r:nfc_device:s0
